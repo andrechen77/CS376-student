@@ -135,7 +135,7 @@ public class BarGraph : MonoBehaviour
         // If we're using signedDisplay, then we also want to cut the scale by a half so we can 
         // have half the widget for positive values and half for negative ones.
         // Leave the localScale's y component as is.
-        var scaleX = value / (this.Max - this.Min);
+        float scaleX;
         if (this.signedDisplay)
         {
             if (value >= 0.0f)
@@ -145,6 +145,9 @@ public class BarGraph : MonoBehaviour
             {
                 scaleX = (value / this.Min) / -2.0f;
             }
+        } else
+        {
+            scaleX = value / this.Max;
         }
         var scale = this.BarTransform.localScale;
         scale.x = scaleX;
