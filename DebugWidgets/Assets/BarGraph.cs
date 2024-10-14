@@ -112,7 +112,16 @@ public class BarGraph : MonoBehaviour
         }
 
         // TODO: Call SetWidthPercent to change the width of the bar and set its color
-        this.SetWidthPercent(displayValue, color);
+        float widthPercent;
+        if (value >= 0.0f)
+        {
+            widthPercent = displayValue / this.Max;
+        }
+        else
+        {
+            widthPercent = displayValue / -this.Min;
+        }
+        this.SetWidthPercent(widthPercent, color);
 
         // TODO: Update the text to read: {name} : {value}
         this.Text.text = $"{name}: {value}";
@@ -135,19 +144,10 @@ public class BarGraph : MonoBehaviour
         // If we're using signedDisplay, then we also want to cut the scale by a half so we can 
         // have half the widget for positive values and half for negative ones.
         // Leave the localScale's y component as is.
-        float scaleX;
+        float scaleX = value;
         if (this.signedDisplay)
         {
-            if (value >= 0.0f)
-            {
-                scaleX = value / this.Max / 2.0f;
-            } else
-            {
-                scaleX = (value / this.Min) / -2.0f;
-            }
-        } else
-        {
-            scaleX = value / this.Max;
+            scaleX /= 2.0f;
         }
         var scale = this.BarTransform.localScale;
         scale.x = scaleX;
