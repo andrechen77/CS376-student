@@ -4,8 +4,7 @@ using UnityEngine;
 /// Control the player on screen
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     /// <summary>
     /// Prefab for the orbs we will shoot
     /// </summary>
@@ -15,7 +14,7 @@ public class Player : MonoBehaviour
     /// How fast our engines can accelerate us
     /// </summary>
     public float EnginePower = 1;
-    
+
     /// <summary>
     /// How fast we turn in place
     /// </summary>
@@ -25,6 +24,12 @@ public class Player : MonoBehaviour
     /// How fast we should shoot our orbs
     /// </summary>
     public float OrbVelocity = 10;
+
+    private Rigidbody2D Rigidbody;
+
+    private void Start() {
+        this.Rigidbody = this.GetComponent<Rigidbody2D>();
+    }
 
     /// <summary>
     /// Handle moving and firing.
@@ -43,7 +48,11 @@ public class Player : MonoBehaviour
     /// </summary>
     void MaybeFire()
     {
-        // TODO
+        if (Input.GetAxis("Fire") > 0.5f) {
+            for (int i = 0; i < 10; i++) {
+                this.FireOrb();
+            }
+        }
     }
 
     /// <summary>
@@ -53,7 +62,9 @@ public class Player : MonoBehaviour
     /// </summary>
     private void FireOrb()
     {
-        // TODO
+        var orbLocation = this.transform.position + this.transform.right;
+        var orb = Instantiate(this.OrbPrefab, orbLocation, Quaternion.identity);
+        orb.GetComponent<Rigidbody2D>().velocity = this.OrbVelocity * this.transform.right;
     }
 
     /// <summary>
@@ -64,7 +75,16 @@ public class Player : MonoBehaviour
     /// </summary>
     void Manoeuvre()
     {
-        // TODO
+        // translational
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+        var direction = new Vector2(x, y).normalized;
+        var thrust = direction * this.EnginePower;
+        this.Rigidbody.AddForce(thrust);
+
+        // rotational
+        var rotation = Input.GetAxis("Rotate") * RotateSpeed;
+        this.Rigidbody.angularVelocity = rotation;
     }
 
     /// <summary>
