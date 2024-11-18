@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -69,9 +70,13 @@ public class ProjectileThrower : MonoBehaviour {
     /// True when we're still waiting for things to stop flying around
     /// </summary>
     /// <returns></returns>
-    bool WaitingForPhysicsToSettle()
-    {
-        return true;  // Replace this
+    bool WaitingForPhysicsToSettle() {
+        foreach (Rigidbody2D rb in FindObjectsOfType<Rigidbody2D>()) {
+            if (rb.IsAwake()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -86,6 +91,9 @@ public class ProjectileThrower : MonoBehaviour {
     internal void Update()
     {
         FireControl();
+        if ((this.firingState >= FiringState.Firing && !this.WaitingForPhysicsToSettle()) || Input.GetKeyDown(KeyCode.Escape)) {
+            this.ResetForFiring();
+        }
     }
 
     /// <summary>
