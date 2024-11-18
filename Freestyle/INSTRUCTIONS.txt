@@ -1,0 +1,30 @@
+This game is a single-player Rocket League-inspired game.
+
+The player controls a red car on screen. The player should use the red car to hit the white ball into the green goals; hitting a green goal will destroy it and spawn a new one. The green goals spawn progressively smaller with each goal.
+
+# Time to Death
+
+The player has a time to death, which is the amount of time they have remaining before they die. The following are the ways that the time to death can change:
+- scoring into a goal rewards 10 seconds of survival time
+- hitting the ball or a wall penalizes 1 second of survival time
+When the survival time reaches zero, the player loses.
+
+# Winning
+
+To win, the player must hit enough goals to reduce the size of the goal to nothing. Upon reaching this condition, the remaining time to death is the player's final score.
+
+# Controls
+
+The player can be controlled using the mouse; pressing Fire1 (Ctrl or left mouse button) will cause the player to turn toward and accelerate toward the mouse.
+
+For an extra challenge, the player can also be controlled with the keyboard/joystick; in this case the Horizontal axis rotates the player and the Vertical axis accelerates the player forward/backward.
+
+The player has a dash action, triggered by Fire2 (LAlt or right mouse button), which causes them to dash forward into their current heading. The dash must recharge once it is used; it takes 2 seconds to fully charge. A fully charged dash will completely replace the player's current velocity with a forward dash. If the player dashes when not fully charged, the current velocity will only be slightly attenuated, and the dash will be weaker.
+
+The player may also brake using Fire3 (Shift or middle mouse button).
+
+Esc will reset the level
+
+# Sounds
+
+A crash sound plays when the player hits something, a laser sound plays on dashing, and a beep plays when the player scores a goal.

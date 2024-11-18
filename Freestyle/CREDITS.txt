@@ -1,0 +1,4 @@
+crash sound: https://opengameart.org/content/crash-collision
+dash sound: https://opengameart.org/content/sound-effects-sfx007
+goal sound: https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
+player sprite: https://opengameart.org/content/red-car-top-down
