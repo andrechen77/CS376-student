@@ -1,0 +1,3 @@
+crash sound: https://opengameart.org/content/crash-collision
+explosion sound: https://opengameart.org/content/rockbreaking
+bullet firing sound: https://opengameart.org/content/spell-4-fire

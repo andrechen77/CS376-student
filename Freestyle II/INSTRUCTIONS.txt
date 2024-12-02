@@ -1,0 +1,19 @@
+This game is a tank obstacle course. Make sure to load the scene file first.
+
+# Objects on screen
+
+- A player-controlled tank that can move forward and backward and turn its turret independently of motion. It can fire bullets.
+- Player bullets are simple balls that deal damage to enemies and to the player itself upon colliding with them.
+- AI-controlled enemy towers that fire homing bullets toward the player.
+- Homing bullets also to damage to players and enemies, but will tend to curve toward the player.
+- Immovable walls create an obstacle course.
+
+# Controls
+
+The player moves forward and backward using the vertical axis, rotates with the horizontal axis, fires with "Fire1" (mapped to K), and turns their turret with "Horizontal II" (mapped to J and L).
+
+# Gameplay
+
+The goal of the game is to defeat all the enemies in the obstacle course; once that is done, the player wins. The player loses if they die without defeating all the enemies in the course. Each bullet does one damage. The player has 30 health and the enemies have varying amounts of health, from 3 to 20.
+
+That's all there is to it.

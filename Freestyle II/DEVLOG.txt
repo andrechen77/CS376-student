@@ -1,0 +1,79 @@
+2024-11-17
+
+I want to make a tank game. An aesthetic I'd like to go for is to make the game challenging and skill-based, so that the player might feel a motivation to master the game and get good at controlling the tank. The gameplay would be pretty simple; they have controls to drive a tank, they have controls to turn the turret, and they have controls to fire. Since the game is singleplayer, I'd need to create AI enemies that they would fight against. I'm not sure what the second aesthetic I'd like to go for is.
+
+Aesthetic goal #1: challenge. I want the player to be motivated to master the game. I would be successful with this goal if there is a good learning curve to the tank (low skill floor, high skill ceiling), and I would have failed if my play testers thought the game was impossible.
+
+---
+
+2024-11-18
+
+The second aesthetic goal I'd like to go for is discovery. Instead of having just a single playing field that the player and the enemies exist in, I could have some kind of large maze-like structure that they would have to explore. The fruits of their exploration would be different kinds of enemies, whose abilities they can steal. The win condition would be to reach the end of the map.
+
+Aesthetic goal #2: discovery. The player should feel joy from going through the map and getting other tanks. I would be successful in this goal if there is a variety of rooms in the level that are sufficiently diverse to not get boring, and I would have failed if all the enemies and weapons end up looking and feeling pretty similar.
+
+Some examples of weapons and abilities the player should be able to earn: their basic gun that shoots bullets, a gun that shoots homing bullets, a gun that shoots exploding bullets, a gun that shoots massive cannonballs, a dash ability. 
+
+Core loop: encounter enemy, defeat enemy, gain enemy ability, move onto another room, repeat.
+
+2024-11-18
+
+---
+
+I have added the basic player to the game. They control a tank that can turn, drive, and rotate its turret, and they can fire bullets by pressing the Fire button. So far so good
+
+---
+
+2024-11-18
+
+I have added enemies to the game, also with turrets, that track the player and fire on a cooldown. There are also homing bullets that will turn to face the player.
+
+---
+
+2024-11-18
+
+Rain check on the idea of enemies that move on their own. I think them being stationary towers that track and shoot you is difficult enough. Perhaps a more advanced enemy would unintelligently bounce off walls, but creating an AI to control them intelligently might be too much work.
+
+Other abilities aside from homing bullets will be postponed to the future for the same reason.
+
+For my third type of interaction between objects (so far I have colliding and homing bullets), I will add an ability for the player to repel bullets. Along with their fire action, this action will take up energy, which recharges over time.
+
+---
+
+2024-11-18
+
+The repulsor, along with its associated energy resource, was added. Players will take damage when they leave their repulsor on and it runs out of energy. Also added associated colors for showing the player's health and energy. The next step is to add sounds.
+
+---
+
+2024-11-18
+
+Sounds have been added to the game, for damage-dealing collisions. I have created a level involving a tank obstacle course, where the player must defeat tanks along the path to the end of the course.
+
+---
+
+2024-11-18
+
+# Post-mortem reflection
+
+## Summarize what you originally set out to do
+
+Originally, I wanted a game that I could call "tank evolution" where the player explores the world and gets more powerful by the end of the game, encountering different enemies along the way and mastering their skills and new abilities.
+
+## Summarize what your goals ended up being by the end
+
+By the end, my goals ended up being making a obstacle-course like game where the player simply aims to make it to the end while surviving with the abilities that they already have.
+
+## Summarize what you accomplished of those goals. What went right?
+
+I created many of the basic mechanics of the original vision, with tank movement and firing, and the homing bullets. I also added another ability, the repulsor, that was not a part of either of those goals, but became part of the game anyway.
+
+I think the game is playable, without being too hard or too easy. Even though the level is short, it works.
+
+## What went wrong?
+
+I did not accomplish all that I set out to accomplish. Some things were too complex to be accomplished in the time that I had.
+
+## What do you wish you knew at the start of the project that you know now? What did you learn in the process?
+
+I wish I knew how much time seemingly simple features such as simple enemy AI would take. In the process, I've learned to smoothly make a camera follow the player, how to make enemies track the player, and how to make homing bullets.
